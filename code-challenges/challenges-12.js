@@ -70,6 +70,21 @@ const oddFiltration = (arr) => {
 
 const cvsFiltration = (arr) => {
     // write your code here
+    let filterdCvs = arr.filter((obj)=>{
+        return obj.yearsOfExperience>4 && obj.tech == 'JS'  
+    })
+    let newObj;
+    let result = []
+    let fullnameList = filterdCvs.filter((obj)=>{
+         if(obj.LastName== null){
+            obj.fullName = `${obj.firstName}`
+         }else{obj.fullName = `${obj.firstName} ${obj.LastName}`};
+         console.log(obj)
+         newObj = {fullName:obj.fullName,tech:obj.tech}
+         return result.push(newObj)
+         
+    })
+    return result
 }
 
 // 3) ---------------------
