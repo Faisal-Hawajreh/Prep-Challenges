@@ -98,6 +98,16 @@ const cvsFiltration = (arr) => {
 
 const vowelsFiltration = (arr) => {
     // write your code here
+    const noWay = /^[^aeiou]+$/gi;
+
+    let newArr = arr.filter((word)=>{
+      // console.log(word)
+      // console.log(noWay.test(word))
+      if( noWay.test(word)==true){return word}
+      return noWay.test(word)
+
+    })
+        return newArr 
 } 
 
 // 4) ---------------------
@@ -116,6 +126,9 @@ const vowelsFiltration = (arr) => {
 
 const skillComparison = (arr1, arr2) => {
     // write your code here
+    let newArr1 = arr1.filter((obj)=>(arr2.includes(obj) == false))
+    let newArr2 = arr2.filter((obj)=>(arr1.includes(obj) == false))
+    return newArr1.concat(newArr2)
 }
 
 

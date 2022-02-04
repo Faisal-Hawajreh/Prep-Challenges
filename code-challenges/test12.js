@@ -12,52 +12,52 @@ const oddFiltration = (arr) => {
 // and works as JS developer 
 
 // EX:
-let cvs1 = [
-    {
-      firstName: "Jason",
-      LastName: "James",
-      yearsOfExperience: 20,
-      tech: "JS",
-    },
-    {
-      firstName: "Shira",
-      LastName: null,
-      yearsOfExperience: 5,
-      tech: ".Net",
-    },
-    {
-      firstName: "Dmitri",
-      LastName: "Akkerman",
-      yearsOfExperience: 1,
-      tech: "Python",
-    },
-    {
-      firstName: "Isabella",
-      LastName: null,
-      yearsOfExperience: 4,
-      tech: "Java",
-    },
-];
-let cvs2 = [
-    {
-      firstName: "Nelson",
-      LastName: "Mandela",
-      yearsOfExperience: 15,
-      tech: "JS",
-    },
-    {
-      firstName: "Shira",
-      LastName: null,
-      yearsOfExperience: 1,
-      tech: ".Net",
-    },
-    {
-      firstName: "Isabella",
-      LastName: null,
-      yearsOfExperience: 4,
-      tech: "Java",
-    },
-  ];
+// let cvs1 = [
+//     {
+//       firstName: "Jason",
+//       LastName: "James",
+//       yearsOfExperience: 20,
+//       tech: "JS",
+//     },
+//     {
+//       firstName: "Shira",
+//       LastName: null,
+//       yearsOfExperience: 5,
+//       tech: ".Net",
+//     },
+//     {
+//       firstName: "Dmitri",
+//       LastName: "Akkerman",
+//       yearsOfExperience: 1,
+//       tech: "Python",
+//     },
+//     {
+//       firstName: "Isabella",
+//       LastName: null,
+//       yearsOfExperience: 4,
+//       tech: "Java",
+//     },
+// ];
+// let cvs2 = [
+//     {
+//       firstName: "Nelson",
+//       LastName: "Mandela",
+//       yearsOfExperience: 15,
+//       tech: "JS",
+//     },
+//     {
+//       firstName: "Shira",
+//       LastName: null,
+//       yearsOfExperience: 1,
+//       tech: ".Net",
+//     },
+//     {
+//       firstName: "Isabella",
+//       LastName: null,
+//       yearsOfExperience: 4,
+//       tech: "Java",
+//     },
+//   ];
 
 
 
@@ -104,23 +104,42 @@ const cvsFiltration = (arr) => {
 // ['car', 'boy', 'spy', 'building', 'why', 'dry' ] ==> ['spy', 'why', 'dry']
 // 
 // ------------------------
-console.log(['car', 'boy', 'spy', 'building', 'why', 'dry' ]);
-const vowelsFiltration = (arr) => {
-    // write your code here
-    let newArr = arr.filter((word,i)=>{
-        let newWord = []
-        newWord.push(word[i])
-        let newletter = newWord.filter((el)=>{
-            console.log(el !== /[^aeiou]+/gi)
-        })
-        console.log(newWord)
+// console.log(['car', 'boy', 'spy', 'building', 'why', 'dry' ]);
+// const vowelsFiltration = (arr) => {
+//     // write your code here
+//     const noWay = /^[^aeiou]+$/gi;
 
-        })
-        
+//     let newArr = arr.filter((word)=>{
+//       // console.log(word)
+//       // console.log(noWay.test(word))
+//       if( noWay.test(word)==true){return word}
+//       return noWay.test(word)
 
-        // return word !== /[^aeiou]+/gi
-    
+//     })
+//         return newArr 
+// } 
+// console.log(vowelsFiltration(['car', 'boy', 'spy', 'building', 'why', 'dry' ]))
 
-    return newArr
-} 
-console.log(vowelsFiltration(['car', 'boy', 'spy', 'building', 'why', 'dry' ]))
+
+// 4) ---------------------
+//
+// An employer wants to compare between his employees skills, write a function that will extract the differences 
+// between the employees skills.
+
+// EX:
+let arr11 = ["C", "C#", "Java", "Angular", "PHP"]
+let arr22 = ["C#", ".Net", "JavaScript", "React", "Angular"]
+// ==>
+// result = [C, Java, PHP, .Net, JavaScript, React]
+// Hint:
+// - the 'include' method can help you, read about it.
+// ------------------------
+
+
+const skillComparison = (arr1, arr2) => {
+  // write your code here
+  let newArr1 = arr1.filter((obj)=>(arr2.includes(obj) == false))
+  let newArr2 = arr2.filter((obj)=>(arr1.includes(obj) == false))
+  return newArr1.concat(newArr2)
+}
+console.log(skillComparison(arr11,arr22))
