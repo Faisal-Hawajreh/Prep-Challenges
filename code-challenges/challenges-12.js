@@ -126,6 +126,7 @@ const vowelsFiltration = (arr) => {
 
 const skillComparison = (arr1, arr2) => {
     // write your code here
+    
     let newArr1 = arr1.filter((obj)=>(arr2.includes(obj) == false))
     let newArr2 = arr2.filter((obj)=>(arr1.includes(obj) == false))
     return newArr1.concat(newArr2)
