@@ -1,177 +1,216 @@
-// 1) ---------------------
-// 
-// Given an array of values use filter to extract odd values.
-//  
 // EX:
-// [20, 54, 89, 41, 2, 31, 111, 15, 0, 31, 200] ==> [89, 41, 31, 111, 31]
+// [ 2, 8, 3, 5 ] ==> [ 4, 64, 9, 25 ]
 // 
-// ------------------------
+// -------------
 
-const oddFiltration = (arr) => {
-    // arr = [20, 54, 89, 41, 2, 31, 111, 15, 0, 31, 200]
+
+
+function square(arr) {
     // write your code here
-    let oddNumber = arr.filter(n => n%2)
-    return oddNumber
+    let square = arr.map((num)=>{
+        let squareNum = num*num
+        return squareNum
+    });
+    return square
 }
-console.log(oddFiltration([20, 54, 89, 41, 2, 31, 111, 15, 0, 31, 200]))
+// console.log(square([ 2, 8, 3, 5 ]))
 
-
-// 2) ---------------------
+// 2) ------------------
+//
+// Ex:
+let array=[
+    {
+        firstName: 'Adam',
+        lastName: 'Anderson',
+    },
+    {
+        firstName: 'Ben',
+        lastName: 'Zeller',
+    }, 
+    {
+        firstName: 'Peter',
+        lastName: 'Mccord',
+    },
+    {
+        firstName: 'Fred',
+        lastName: 'Sagar',
+    },
+    {
+        firstName: 'Nathan',
+        lastName: 'Weiss',
+    }
+];
+//
+//
+// Output ==>['Adam Anderson', 'Ben Zeller', 'Peter Mccord', 'Fred Sagar', 'Nathan Weiss']
 // 
-// Given data of candidates return the candidates CVs that have more than 4 years of experience 
-// and works as JS developer 
+//
+// Given an array of objects of student's first and last name, use the map to return an array off student's full names.
+//
+// note: the full names should be combined between student's first and last names.
+//
 
-// EX:
-var cvs = [
-    {
-        firstName: "Jason",
-        LastName: "James",
-        yearsOfExperience: 20,
-        tech: "JS"
-    },
-    {
-        firstName: "Shira",
-        LastName: null,
-        yearsOfExperience: 5,
-        tech: ".Net"
-    },
-    {
-        firstName: "Dmitri",
-        LastName: "Akkerman",
-        yearsOfExperience: 1,
-        tech: "Python"
-    },
-    {
-        firstName: "Isabella",
-        LastName: null,
-        yearsOfExperience: 4,
-        tech: "Java"
-    }
-]
-// console.log(cvs[i])
-//   ===>
-
-// [
-//     {
-//         fullName: "Jason James",
-//         tech: "JS"
-//     }
-// ]
-
-//  Note that:
-//  1- Full name is first name + last name
-//  2- If one of the names is null dont add it to the full name
-// ------------------------
-
-
-
-const cvsFiltration = (arr) => {
-let acceptedCV = arr.filter((cv) => cv.yearsOfExperience > 3)
-    cv = acceptedCV.map((cv)=> {
-        let fullName;
-        if(cv.LastName == null){
-            cv.fullName = cv.firstName;
-        }else{cv.fullName = cv.firstName +" "+ cv.LastName}
-        function cVs(fullName,tech){
-            this.fullName = cv.fullName;
-            this.tech = cv.tech;
-        }
-        let newArr = [];
-        for(let i = 0 ; i<cv.length;i++){
-            var newCV = new cVs(acceptedCV.LastName,acceptedCV.tech)
-            newArr.push(newCV)
-
-        }
-        return cv
+function fullName(arr) {
+    // write your code here
+    let fullNameList = arr.map((name)=>{
+        let fullname = `${name.firstName} ${name.lastName}`;
+        return fullname
     })
-    return cv
-    }
-console.log(cvsFiltration(cvs))
-
-// describe("Challenge12-02", () => {
-//     test("cvsFiltration", () => {
-//       let cvs1 = [
-//         {
-//           firstName: "Jason",
-//           LastName: "James",
-//           yearsOfExperience: 20,
-//           tech: "JS",
-//         },
-//         {
-//           firstName: "Shira",
-//           LastName: null,
-//           yearsOfExperience: 5,
-//           tech: ".Net",
-//         },
-//         {
-//           firstName: "Dmitri",
-//           LastName: "Akkerman",
-//           yearsOfExperience: 1,
-//           tech: "Python",
-//         },
-//         {
-//           firstName: "Isabella",
-//           LastName: null,
-//           yearsOfExperience: 4,
-//           tech: "Java",
-//         },
-//       ];
-//       let res1 = [
-//         {
-//           fullName: "Jason James",
-//           tech: "JS",
-//         },
-//       ];
-  
-//       let cvs2 = [
-//         {
-//           firstName: "Nelson",
-//           LastName: "Mandela",
-//           yearsOfExperience: 15,
-//           tech: "JS",
-//         },
-//         {
-//           firstName: "Shira",
-//           LastName: null,
-//           yearsOfExperience: 1,
-//           tech: ".Net",
-//         },
-//         {
-//           firstName: "Isabella",
-//           LastName: null,
-//           yearsOfExperience: 4,
-//           tech: "Java",
-//         },
-//       ];
-//       let res2 = [
-//         {
-//           fullName: "Nelson Mandela",
-//           tech: "JS",
-//         },
-//       ];
-  
-//       expect(cvsFiltration(cvs1)).toStrictEqual(res1);
-//       expect(cvsFiltration(cvs2)).toStrictEqual(res2);
-//     });
-//   });
-  
-
+    return fullNameList
+}
+// console.log(fullName(array))
 
 // 3) ---------------------
-//
-// Given an array of words filter the names that contains one of the vowels (a, e, i, o, u)
-
-// EX:
-// ['car', 'boy', 'spy', 'building', 'why', 'dry' ] ==> ['spy', 'why', 'dry']
 // 
-// ------------------------
+// Given an array of objects use map to calculate the average of the grades 
+// and return an array of the objects with a new property called avg (that represent the average of the grades).
+//  
 
-// const vowelsFiltration = (arr) => {
-    
-//     let filterd = arr.filter(word=> word == /[^aeiou]/)
-//     // write your code here
-//     return filterd
-// } 
+EX:
+var students = [
+	{
+			firstName: 'Adam',
+     lastName: 'Anderson',
+			gradsList: [20, 50, 13, 11, 2, 45, 60, 29]
+},
+{
+			firstName: 'Ben',
+     lastNAme: 'Zeller',
+			gradsList: [20, 10, 11, 11, 2, 5, 3, 2]
+},
+{
+			firstName: 'Peter',
+     lastName: 'Mccord',
+	    gradsList: [62, 50, 80, 90, 39, 45, 60, 50]
+},
+{
+			firstName: 'Fred',
+     lastNAme: 'Sagar',
+			gradsList: [20, 10, 18, 11, 2, 20, 3, 10]
+}
+]
+// results =>
+//[
+// 	{
+// 			firstName: 'Adam',
+//      lastName: 'Anderson',
+// 			gradsList: [20,50,13,11,2,45,60,29],
+// 			avg: 28.75
+// },
+// {
+// 			firstName: 'Ben',
+//      lastNAme: 'Zeller',
+// 			gradsList: [20,10,11,11,2,5,3,2],
+//			avg: 8
+// },
+// {
+// 			firstName: 'Peter',
+//      lastName: 'Mccord',
+// 	    gradsList: [62,50,80,90,39,45,60,50],
+//			avg: 59.5
+// },
+// {
+// 			firstName: 'Fred',
+//      lastNAme: 'Sagar',
+// 			gradsList: [20,10,18,11,2,20,3,10],
+//      avg: 11.75
+// 	}
+//]
+// -------------
 
-// console.log(vowelsFiltration(['car', 'boy', 'spy', 'building', 'why', 'dry' ]))
+function gradesAvg(arr) {
+    // write your code here
+    let newList = arr.map((obj)=>{
+        // console.log(obj.gradsList)
+        let sum = 0;
+        let avgGrads = obj.gradsList.map((el)=>{
+            return sum += el
+            // console.log(sum)
+        })
+        let Avg = Math.max.apply(null,avgGrads)/obj.gradsList.length
+        // console.log(Avg)
+        
+        obj.avg = Avg;
+        return obj
+    });
+    // console.log(newList)
+    return newList
+}
+// console.log(gradesAvg(students))
+// 4) ---------------------
+//
+// Using the previous function result, determine if the student pass or failed,
+// and return the array of the object with a new property called result (with Passed or Failed)//  
+//
+//	note : if his/her avg equal or above 50 the result will be Passed, and Failed if it's less than that
+// EX:
+// var students = [
+// 	{
+// 			firstName: 'Adam',
+//      lastName: 'Anderson',
+// 			gradsList: [20,50,13,11,2,45,60,29],
+// 			avg: 28.75
+// },
+// {
+// 			firstName: 'Ben',
+//      lastNAme: 'Zeller',
+// 			gradsList: [20,10,11,11,2,5,3,2],
+//			avg: 8
+// },
+// {
+// 			firstName: 'Peter',
+//      lastName: 'Mccord',
+// 	    gradsList: [62,50,80,90,39,45,60,50],
+//			avg: 59.5
+// },
+// {
+// 			firstName: 'Fred',
+//      lastNAme: 'Sagar',
+// 			gradsList: [20,10,18,11,2,20,3,10],
+//      avg: 11.75
+// 	}
+//]
+// results =>
+//[
+// 	{
+// 			firstName: 'Adam',
+//      lastName: 'Anderson',
+// 			gradsList: [20,50,13,11,2,45,60,29],
+// 			avg: 28.75,
+//      result: 'Failed'
+// },
+// {
+// 			firstName: 'Ben',
+//      lastNAme: 'Zeller',
+// 			gradsList: [20,10,11,11,2,5,3,2],
+//			avg: 8,
+//      result: 'Failed'
+// },
+// {
+// 			firstName: 'Peter',
+//      lastName: 'Mccord',
+// 	    gradsList: [62,50,80,90,39,45,60,50],
+//			avg: 59.5,
+//      result: 'Passed'
+// },
+// {
+// 			firstName: 'Fred',
+//      lastNAme: 'Sagar',
+// 			gradsList: [20,10,18,11,2,20,3,10],
+//      avg: 11.75,
+//      result: 'Failed'
+// 	}
+//]
+// -------------
 
+function studentsResult(arr) {
+    // write your code here
+    let passList = arr.map((obj)=>{
+        if(obj.avg > 50){
+            obj['result'] = 'Passed';
+        }else{obj['result'] = 'Failed';}
+        return obj
+    })
+    return passList
+}
+console.log(studentsResult(gradesAvg(students)))
