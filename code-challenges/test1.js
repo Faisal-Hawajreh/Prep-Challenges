@@ -1,177 +1,171 @@
 // 1) ---------------------
 // 
-// Given an array of values use filter to extract odd values.
-//  
-// EX:
-// [20, 54, 89, 41, 2, 31, 111, 15, 0, 31, 200] ==> [89, 41, 31, 111, 31]
-// 
+// Using the slice and indexOf/lastIndexOf methods, return the last word in a string
+//
+// Note: consider that the string may have one word but never empty
+//
+// Ex: "I did my waiting 12 years of it in Azkaban" ==> "Azkaban"
+// Ex: "Impossible" ==> "Impossible"
+//
 // ------------------------
 
-const oddFiltration = (arr) => {
-    // arr = [20, 54, 89, 41, 2, 31, 111, 15, 0, 31, 200]
+const LastWord = (str) => {
     // write your code here
-    let oddNumber = arr.filter(n => n%2)
-    return oddNumber
+    let idx;
+    idx = str.lastIndexOf(" ")
+    if(idx==-1){return str}
+    else{return str.slice(idx+1)}
 }
-console.log(oddFiltration([20, 54, 89, 41, 2, 31, 111, 15, 0, 31, 200]))
-
-
+// console.log(LastWord("you dare use my spells against me, potter"))
 // 2) ---------------------
 // 
-// Given data of candidates return the candidates CVs that have more than 4 years of experience 
-// and works as JS developer 
-
-// EX:
-var cvs = [
-    {
-        firstName: "Jason",
-        LastName: "James",
-        yearsOfExperience: 20,
-        tech: "JS"
-    },
-    {
-        firstName: "Shira",
-        LastName: null,
-        yearsOfExperience: 5,
-        tech: ".Net"
-    },
-    {
-        firstName: "Dmitri",
-        LastName: "Akkerman",
-        yearsOfExperience: 1,
-        tech: "Python"
-    },
-    {
-        firstName: "Isabella",
-        LastName: null,
-        yearsOfExperience: 4,
-        tech: "Java"
-    }
-]
-// console.log(cvs[i])
-//   ===>
-
-// [
-//     {
-//         fullName: "Jason James",
-//         tech: "JS"
-//     }
-// ]
-
-//  Note that:
-//  1- Full name is first name + last name
-//  2- If one of the names is null dont add it to the full name
+//  Hopefully you struggled in the last code challenge, you can try to do the same task using the split method
+//
+//  EX: "you dare use my spells against me, potter" ===> "potter"
+//
 // ------------------------
 
-
-
-const cvsFiltration = (arr) => {
-let acceptedCV = arr.filter((cv) => cv.yearsOfExperience > 3)
-    cv = acceptedCV.map((cv)=> {
-        let fullName;
-        if(cv.LastName == null){
-            cv.fullName = cv.firstName;
-        }else{cv.fullName = cv.firstName +" "+ cv.LastName}
-        function cVs(fullName,tech){
-            this.fullName = cv.fullName;
-            this.tech = cv.tech;
-        }
-        let newArr = [];
-        for(let i = 0 ; i<cv.length;i++){
-            var newCV = new cVs(acceptedCV.LastName,acceptedCV.tech)
-            newArr.push(newCV)
-
-        }
-        return cv
-    })
-    return cv
-    }
-console.log(cvsFiltration(cvs))
-
-// describe("Challenge12-02", () => {
-//     test("cvsFiltration", () => {
-//       let cvs1 = [
-//         {
-//           firstName: "Jason",
-//           LastName: "James",
-//           yearsOfExperience: 20,
-//           tech: "JS",
-//         },
-//         {
-//           firstName: "Shira",
-//           LastName: null,
-//           yearsOfExperience: 5,
-//           tech: ".Net",
-//         },
-//         {
-//           firstName: "Dmitri",
-//           LastName: "Akkerman",
-//           yearsOfExperience: 1,
-//           tech: "Python",
-//         },
-//         {
-//           firstName: "Isabella",
-//           LastName: null,
-//           yearsOfExperience: 4,
-//           tech: "Java",
-//         },
-//       ];
-//       let res1 = [
-//         {
-//           fullName: "Jason James",
-//           tech: "JS",
-//         },
-//       ];
-  
-//       let cvs2 = [
-//         {
-//           firstName: "Nelson",
-//           LastName: "Mandela",
-//           yearsOfExperience: 15,
-//           tech: "JS",
-//         },
-//         {
-//           firstName: "Shira",
-//           LastName: null,
-//           yearsOfExperience: 1,
-//           tech: ".Net",
-//         },
-//         {
-//           firstName: "Isabella",
-//           LastName: null,
-//           yearsOfExperience: 4,
-//           tech: "Java",
-//         },
-//       ];
-//       let res2 = [
-//         {
-//           fullName: "Nelson Mandela",
-//           tech: "JS",
-//         },
-//       ];
-  
-//       expect(cvsFiltration(cvs1)).toStrictEqual(res1);
-//       expect(cvsFiltration(cvs2)).toStrictEqual(res2);
-//     });
-//   });
-  
-
+const LastWord_2 = (str) => {
+     // write your code here
+     let arr = str.split(" ")
+     let lastWord = arr.slice(-1)
+    //  console.log(arr)
+     return lastWord[0]
+}
+// console.log(LastWord("Impossible"))
 
 // 3) ---------------------
-//
-// Given an array of words filter the names that contains one of the vowels (a, e, i, o, u)
-
-// EX:
-// ['car', 'boy', 'spy', 'building', 'why', 'dry' ] ==> ['spy', 'why', 'dry']
 // 
+// Number 2 was easy right?, ok then using the splice method replace all the "I" with "We", "am" with "are" and "was" with "were"
+//
+// Note: you may use another method for search (indexOf)
+//
+// Ex: "I thought you had a plan" ==> "We thought you had a plan"
+// Ex: "I was there 3000 years ago" ==> "We were there 3000 years ago"
+// Ex: "I am Venom" ==> "We are Venom"
+//
 // ------------------------
 
-// const vowelsFiltration = (arr) => {
-    
-//     let filterd = arr.filter(word=> word == /[^aeiou]/)
+const replaceWords = (str) => {
+    // write your code here
+    let newStr;
+    let arr = str.split(" ")
+    if(arr.indexOf('I')!=-1){newStr = arr.splice(arr.indexOf('I'),1,"We")};
+    if(arr.indexOf('am')!=-1){newStr = arr.splice(arr.indexOf('am'),1,"are")};
+    if(arr.indexOf('was')!=-1){newStr = arr.splice(arr.indexOf('was'),1,"were")};
+    return arr.join(" ")
+}
+// console.log(replaceWords("I was there 3000 years ago"))
+
+// 4) ---------------------
+// 
+// Write a function that "joins" the array of words together and put a comma "," after every five words
+// ["move","it","away","from","the","street"] ==> "move it away from the, street" 
+//
+// ------------------------
+
+const arrToStr = (arr) => {
+    // write your code here
+    arr.splice(4,1,arr[4]+",")
+    let newStr = arr.join(" ")
+    return newStr
+}
+// console.log(arrToStr(["move","it","away","from","the","street"]))
+
+// 5) ---------------------
+// 
+// Simon got a string manipulation question for his interview, it asked him to replace the duplicated letters in a string to an indicator and counter
+// as in the example:
+//
+// "aaaa bbb sdf" ===> "a4 b3 s1d1f1"
+//  "door" ==> "d1o2r1"
+//
+// help him by writing the function
+//
+// ------------------------
+
+// const letterCounter = (str) => {
 //     // write your code here
-//     return filterd
-// } 
+//     let arr = str.split(" ")
+//     for(let i = 0;i<arr.length;i++){
 
-// console.log(vowelsFiltration(['car', 'boy', 'spy', 'building', 'why', 'dry' ]))
+//         let letters = arr[i].split("")
+//         console.log(letters)
 
+//         for(let j = 0;j<letters.length;j++){
+//             console.log(j)
+//             x= letters.indexOf(letters[j],j)
+//             z = letters.indexOf(letters[j],j+1)
+//             console.log(x)
+//             console.log(z)
+            
+
+//             if(z==-1&&x==j){
+//                 if(letters[j+1]==undefined&&letters[j]==letters[j+-1]){
+//                 letters.splice(j-(x-1),x,x+1)
+//                 console.log(letters)
+//                 }else if(letters[j+1]==undefined&&letters[j]!=letters[j-1]){
+//                     let idx = letters.indexOf(letters[j])
+//                     letters.splice(idx+1,0,1)
+//                     console.log(letters)
+//                     break;
+//                 }
+
+//             }
+//             if (letters[j]!=letters[j+1]&&letters[j+1]!=undefined){
+//                 let idx = letters.indexOf(letters[j])
+//                 letters.splice(idx+1,0,1)
+//                 console.log(letters)
+//                 console.log(letters[j+2])
+//                 j=letters.indexOf(letters[j+2])
+
+//             }
+//             console.log("----------")
+
+//         }
+
+//     }
+//     return str
+// }
+// console.log(letterCounter("aaaa bbb sdf"))
+
+
+
+const letterCounter = (str) => {
+    // write your code here
+    let arr = str.split(" ")
+    let arr2 = str.split(" ")
+    let newSent = [];
+    for(let i = 0;i<arr.length;i++){
+
+        let letters = arr[i].split("")
+        let letters2 = arr[i].split("")
+        console.log(letters)
+
+        for(let j = 0;j<letters.length;j++){
+            console.log(j)
+            let x = letters.indexOf(letters[j],j)
+            let z = letters.indexOf(letters[j],j+1)
+            console.log(x)
+            console.log(z)
+            if(letters[j]!=letters[j+1]&&z==-1){
+                let idx = letters2.indexOf(letters[j],j)
+                letters2.splice(idx+1,0,1)
+                console.log(letters2)
+            }
+
+
+
+            console.log("----------")
+
+        }
+        let newWord = letters2.join("");
+        console.log(newWord)
+        newSent.push(newWord)
+
+
+    }
+
+    return newSent.join(" ")
+}
+console.log(letterCounter("Good morning"))
