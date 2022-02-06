@@ -20,6 +20,10 @@
 
 const LastWord = (str) => {
     // write your code here
+    let idx;
+    idx = str.lastIndexOf(" ")
+    if(idx==-1){return str}
+    else{return str.slice(idx+1)}
 }
 
 // 2) ---------------------
@@ -29,9 +33,12 @@ const LastWord = (str) => {
 //  EX: "you dare use my spells against me, potter" ===> "potter"
 //
 // ------------------------
-
 const LastWord_2 = (str) => {
-    // write your code here
+     // write your code here
+     let arr = str.split(" ")
+     let lastWord = arr.slice(-1)
+    //  console.log(arr)
+     return lastWord[0]
 }
 
 // 3) ---------------------
@@ -48,6 +55,12 @@ const LastWord_2 = (str) => {
 
 const replaceWords = (str) => {
     // write your code here
+    let newStr;
+    let arr = str.split(" ")
+    if(arr.indexOf('I')!=-1){newStr = arr.splice(arr.indexOf('I'),1,"We")};
+    if(arr.indexOf('am')!=-1){newStr = arr.splice(arr.indexOf('am'),1,"are")};
+    if(arr.indexOf('was')!=-1){newStr = arr.splice(arr.indexOf('was'),1,"were")};
+    return arr.join(" ")
 }
 
 // 4) ---------------------
@@ -59,6 +72,9 @@ const replaceWords = (str) => {
 
 const arrToStr = (arr) => {
     // write your code here
+    arr.splice(4,1,arr[4]+",")
+    let newStr = arr.join(" ")
+    return newStr
 }
 
 // 5) ---------------------
@@ -75,6 +91,64 @@ const arrToStr = (arr) => {
 
 const letterCounter = (str) => {
     // write your code here
+    let arr = str.split(" ")
+    let arr2 = str.split(" ")
+    let newSent = [];
+    for(let i = 0;i<arr.length;i++){
+
+        let letters = arr[i].split("")
+        let letters2 = arr[i].split("")
+        console.log(letters)
+
+        for(let j = 0;j<letters.length;j++){
+            console.log(j)
+            let x = letters.indexOf(letters[j],j)
+            let z = letters.indexOf(letters[j],j+1)
+            console.log(x)
+            console.log(z)
+            let count = 1;
+            if(letters[j]==letters[j+1]){
+            x = count +=1
+            }else if(letters[j+1]==undefined&&z==-1){
+                if(letters[j]==letters[j-1]){
+                    let idx = letters2.indexOf(letters[j])
+                    letters2.splice(idx+1,x,x+1)
+                    console.log(letters2[idx+1])
+
+                }else{
+                let idx = letters2.indexOf(letters[j])
+                console.log(letters2[idx])
+                letters2.splice(idx+1,0,1)
+                console.log(letters2)}
+            }
+            
+            else if(letters[j]!=letters[j+1]&&z==-1){
+                if(letters[j]==letters[j-1]){
+                    let idx = letters2.indexOf(letters[j],j)
+                    letters2.splice(idx+1,x-1,x)
+                    console.log(letters2[idx+1])
+
+                }else{
+                let idx = letters2.indexOf(letters[j],j)
+                console.log(letters2[idx])
+                letters2.splice(idx+1,0,1)
+                console.log(letters2)}
+
+            }else if(letters[j]!=letters[j+1]&&z!=-1){
+                let idx = letters2.lastIndexOf(letters[j])
+                letters2.splice(idx+1,0,1)
+            }
+            console.log("----------")
+
+        }
+        let newWord = letters2.join("");
+        console.log(newWord)
+        newSent.push(newWord)
+
+    
+    }
+
+    return newSent.join(" ")
 }
 
 
