@@ -17,6 +17,11 @@
 
 function square(arr) {
     // write your code here
+    let square = arr.map((num)=>{
+        let squareNum = num*num
+        return squareNum
+    });
+    return square
 }
 
 // 2) ------------------
@@ -56,6 +61,11 @@ function square(arr) {
 
 function fullName(arr) {
     // write your code here
+    let fullNameList = arr.map((name)=>{
+        let fullname = `${name.firstName} ${name.lastName}`;
+        return fullname
+    })
+    return fullNameList
 }
 
 // 3) ---------------------
@@ -118,6 +128,21 @@ function fullName(arr) {
 
 function gradesAvg(arr) {
     // write your code here
+    let newList = arr.map((obj)=>{
+        // console.log(obj.gradsList)
+        let sum = 0;
+        let avgGrads = obj.gradsList.map((el)=>{
+            return sum += el
+            // console.log(sum)
+        })
+        let Avg = Math.max.apply(null,avgGrads)/obj.gradsList.length
+        // console.log(Avg)
+
+        obj.avg = Avg;
+        return obj
+    });
+    console.log(newList)
+    return newList
 }
 
 
@@ -189,6 +214,13 @@ function gradesAvg(arr) {
 
 function studentsResult(arr) {
     // write your code here
+    let passList = arr.map((obj)=>{
+        if(obj.avg > 50){
+            obj['result'] = 'Passed';
+        }else{obj['result'] = 'Failed';}
+        return obj
+    })
+    return passList
 }
 
 module.exports = { square, fullName, gradesAvg, studentsResult };
