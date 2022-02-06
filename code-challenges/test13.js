@@ -1,11 +1,4 @@
-'use strict';
-
-// Important Note: 
-// Kindly use reduce instead of for in all of your solutions
-
-// Resource:
-// Reduce: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
-
+'use strict'
 // 1) ---------------------
 // 
 //  Given an array of objects, count the objects by using reduce method.
@@ -33,7 +26,7 @@
 //         votes_To: "Bailey",
 //     }
 // ]
-//
+
 
 // ------------------------
 
@@ -43,6 +36,8 @@ const objectCounter = (obj) => {
     return count
 
 }
+// console.log(objectCounter(voters))
+
 
 // 2) ---------------------
 // 
@@ -64,6 +59,7 @@ const stringReverse = (str) => {
     let x = newSentence.join(" ")
 return x
 }
+console.log(stringReverse('you shall not pass'))
 
 
 // 3) ---------------------
@@ -72,28 +68,47 @@ return x
 // and how many times they got voted to as values using the reduce method.
 //
 // Input:
-// let voters = [
-//     {
-//         voter_Name: "Adam Scott",
-//         votes_To: "James",
-//     },
-//     {
-//         voter_Name: "Abril Blake",
-//         votes_To: "Jade",
-//     },
-//     {
-//         voter_Name: "Ruby Andrews",
-//         votes_To: "Jade",
-//     },
-//     {
-//         voter_Name: "Junior Maxwell",
-//         votes_To: "Bailey",
-//     },
-//     {
-//         voter_Name: "Junior Maxwell",
-//         votes_To: "Bailey",
-//     }
-// ];
+let voters = [
+    {
+        voter_Name: "Adam Scott",
+        votes_To: "James",
+    },
+    {
+        voter_Name: "Abril Blake",
+        votes_To: "Jade",
+    },
+    {
+        voter_Name: "Ruby Andrews",
+        votes_To: "Jade",
+    },
+    {
+        voter_Name: "Junior Maxwell",
+        votes_To: "Bailey",
+    },
+    {
+        voter_Name: "Junior Maxwell",
+        votes_To: "Bailey",
+    }
+];
+
+let voters2 = [
+    {
+        voter_Name: "Adam Scott",
+        votes_To: "Chad",
+    },
+    {
+        voter_Name: "Abril Blake",
+        votes_To: "Jade",
+    },
+    {
+        voter_Name: "Junior Maxwell",
+        votes_To: "Chad",
+    },
+    {
+        voter_Name: "Junior Maxwell",
+        votes_To: "Jade",
+    }
+];
 //
 // Output:
 // let res = {
@@ -131,7 +146,4 @@ const statistics = (obj) => {
 
     return objs
 }
-
-
-module.exports = { objectCounter, stringReverse, statistics };
-
+console.log(statistics(voters))
