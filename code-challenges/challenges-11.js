@@ -137,7 +137,7 @@ function gradesAvg(arr) {
         })
         let Avg = Math.max.apply(null,avgGrads)/obj.gradsList.length
         // console.log(Avg)
-        
+
         obj.avg = Avg;
         return obj
     });
