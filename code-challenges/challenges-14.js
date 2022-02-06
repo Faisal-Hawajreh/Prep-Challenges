@@ -98,14 +98,13 @@ const letterCounter = (str) => {
 
         let letters = arr[i].split("")
         let letters2 = arr[i].split("")
-        console.log(letters)
+
 
         for(let j = 0;j<letters.length;j++){
-            console.log(j)
+
             let x = letters.indexOf(letters[j],j)
             let z = letters.indexOf(letters[j],j+1)
-            console.log(x)
-            console.log(z)
+
             let count = 1;
             if(letters[j]==letters[j+1]){
             x = count +=1
@@ -113,36 +112,25 @@ const letterCounter = (str) => {
                 if(letters[j]==letters[j-1]){
                     let idx = letters2.indexOf(letters[j])
                     letters2.splice(idx+1,x,x+1)
-                    console.log(letters2[idx+1])
-
                 }else{
                 let idx = letters2.indexOf(letters[j])
-                console.log(letters2[idx])
-                letters2.splice(idx+1,0,1)
-                console.log(letters2)}
-            }
-            
-            else if(letters[j]!=letters[j+1]&&z==-1){
+                letters2.splice(idx+1,0,1)}
+            }else if(letters[j]!=letters[j+1]&&z==-1){
                 if(letters[j]==letters[j-1]){
                     let idx = letters2.indexOf(letters[j],j)
                     letters2.splice(idx+1,x-1,x)
-                    console.log(letters2[idx+1])
 
                 }else{
                 let idx = letters2.indexOf(letters[j],j)
-                console.log(letters2[idx])
-                letters2.splice(idx+1,0,1)
-                console.log(letters2)}
+                letters2.splice(idx+1,0,1)}
 
             }else if(letters[j]!=letters[j+1]&&z!=-1){
                 let idx = letters2.lastIndexOf(letters[j])
                 letters2.splice(idx+1,0,1)
             }
-            console.log("----------")
 
         }
         let newWord = letters2.join("");
-        console.log(newWord)
         newSent.push(newWord)
 
     
