@@ -1,12 +1,3 @@
-'use strict';
-
-// Resource:
-// split: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
-// slice: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
-// splice: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
-// indexOf: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
-// lastIndexOf: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf
-
 // 1) ---------------------
 // 
 // Using the slice and indexOf/lastIndexOf methods, return the last word in a string
@@ -25,7 +16,7 @@ const LastWord = (str) => {
     if(idx==-1){return str}
     else{return str.slice(idx+1)}
 }
-
+console.log(LastWord("you dare use my spells against me, potter"))
 // 2) ---------------------
 // 
 //  Hopefully you struggled in the last code challenge, you can try to do the same task using the split method
@@ -33,6 +24,7 @@ const LastWord = (str) => {
 //  EX: "you dare use my spells against me, potter" ===> "potter"
 //
 // ------------------------
+
 const LastWord_2 = (str) => {
      // write your code here
      let arr = str.split(" ")
@@ -40,6 +32,7 @@ const LastWord_2 = (str) => {
     //  console.log(arr)
      return lastWord[0]
 }
+// console.log(LastWord("Impossible"))
 
 // 3) ---------------------
 // 
@@ -62,6 +55,7 @@ const replaceWords = (str) => {
     if(arr.indexOf('was')!=-1){newStr = arr.splice(arr.indexOf('was'),1,"were")};
     return arr.join(" ")
 }
+// console.log(replaceWords("I was there 3000 years ago"))
 
 // 4) ---------------------
 // 
@@ -76,6 +70,7 @@ const arrToStr = (arr) => {
     let newStr = arr.join(" ")
     return newStr
 }
+// console.log(arrToStr(["move","it","away","from","the","street"]))
 
 // 5) ---------------------
 // 
@@ -89,6 +84,53 @@ const arrToStr = (arr) => {
 //
 // ------------------------
 
+// const letterCounter = (str) => {
+//     // write your code here
+//     let arr = str.split(" ")
+//     for(let i = 0;i<arr.length;i++){
+
+//         let letters = arr[i].split("")
+//         console.log(letters)
+
+//         for(let j = 0;j<letters.length;j++){
+//             console.log(j)
+//             x= letters.indexOf(letters[j],j)
+//             z = letters.indexOf(letters[j],j+1)
+//             console.log(x)
+//             console.log(z)
+            
+
+//             if(z==-1&&x==j){
+//                 if(letters[j+1]==undefined&&letters[j]==letters[j+-1]){
+//                 letters.splice(j-(x-1),x,x+1)
+//                 console.log(letters)
+//                 }else if(letters[j+1]==undefined&&letters[j]!=letters[j-1]){
+//                     let idx = letters.indexOf(letters[j])
+//                     letters.splice(idx+1,0,1)
+//                     console.log(letters)
+//                     break;
+//                 }
+
+//             }
+//             if (letters[j]!=letters[j+1]&&letters[j+1]!=undefined){
+//                 let idx = letters.indexOf(letters[j])
+//                 letters.splice(idx+1,0,1)
+//                 console.log(letters)
+//                 console.log(letters[j+2])
+//                 j=letters.indexOf(letters[j+2])
+
+//             }
+//             console.log("----------")
+
+//         }
+
+//     }
+//     return str
+// }
+// console.log(letterCounter("aaaa bbb sdf"))
+
+
+
 const letterCounter = (str) => {
     // write your code here
     let arr = str.split(" ")
@@ -98,13 +140,14 @@ const letterCounter = (str) => {
 
         let letters = arr[i].split("")
         let letters2 = arr[i].split("")
-
+        console.log(letters)
 
         for(let j = 0;j<letters.length;j++){
-
+            console.log(j)
             let x = letters.indexOf(letters[j],j)
             let z = letters.indexOf(letters[j],j+1)
-
+            console.log(x)
+            console.log(z)
             let count = 1;
             if(letters[j]==letters[j+1]){
             x = count +=1
@@ -112,25 +155,36 @@ const letterCounter = (str) => {
                 if(letters[j]==letters[j-1]){
                     let idx = letters2.indexOf(letters[j])
                     letters2.splice(idx+1,x,x+1)
+                    console.log(letters2[idx+1])
+
                 }else{
                 let idx = letters2.indexOf(letters[j])
-                letters2.splice(idx+1,0,1)}
-            }else if(letters[j]!=letters[j+1]&&z==-1){
+                console.log(letters2[idx])
+                letters2.splice(idx+1,0,1)
+                console.log(letters2)}
+            }
+            
+            else if(letters[j]!=letters[j+1]&&z==-1){
                 if(letters[j]==letters[j-1]){
                     let idx = letters2.indexOf(letters[j],j)
                     letters2.splice(idx+1,x-1,x)
+                    console.log(letters2[idx+1])
 
                 }else{
                 let idx = letters2.indexOf(letters[j],j)
-                letters2.splice(idx+1,0,1)}
+                console.log(letters2[idx])
+                letters2.splice(idx+1,0,1)
+                console.log(letters2)}
 
             }else if(letters[j]!=letters[j+1]&&z!=-1){
                 let idx = letters2.lastIndexOf(letters[j])
                 letters2.splice(idx+1,0,1)
             }
+            console.log("----------")
 
         }
         let newWord = letters2.join("");
+        console.log(newWord)
         newSent.push(newWord)
 
     
@@ -138,7 +192,5 @@ const letterCounter = (str) => {
 
     return newSent.join(" ")
 }
-
-
-
-module.exports = { LastWord, LastWord_2, replaceWords, arrToStr, letterCounter };
+console.log(letterCounter("Good morning"))
+// console.log(letterCounter("aaaa bbb sdf"))
