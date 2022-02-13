@@ -24,7 +24,7 @@
         {
             "language": "javascript",
             "source": [
-                ""
+                "function equalizeArray(arr) {\n    // Write your code here\n    let num ;\n    let newArr;\n        for(let i=0;i<arr.length;i++){\n            let exist = arr.indexOf(arr[i],i+1)\n            if(exist!=-1){\n                num = arr[i]\n            }\n        }\n    newArr = arr.filter((n)=>n!=num)\n    return newArr.length\n}\n"
             ],
             "outputs": []
         },
