@@ -1,5 +1,6 @@
 function equalizeArray(arr) {
     // Write your code here
+    
     let num ;
     let newArr;
         for(let i=0;i<arr.length;i++){
