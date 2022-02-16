@@ -16,6 +16,10 @@
 
 const wordLength = (str) => {
     // write your code here
+    let newArr = str.split(" ")
+    console.log(str.split(" ").length)
+    if(newArr.length%2==1){return newArr[Math.floor(newArr.length/2)].length}
+    else{return newArr[(newArr.length/2)].length}
 }
 // -------------------------------------------------------------------------------------------------------
 
